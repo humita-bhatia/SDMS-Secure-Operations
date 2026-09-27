@@ -1,0 +1,727 @@
+IMPORTANT — READ THE ENTIRE PRD BEFORE WRITING CODE.
+
+You are building PHASE 1 of SDMS.
+
+PRODUCT:
+SDMS — Secure Document Management System
+
+DESCRIPTOR:
+Cryptographic Provenance & Forensic Attribution
+
+PROBLEM:
+SIH 2026 Problem Statement 26237
+
+============================================================
+PHASE 1 SCOPE
+============================================================
+
+Build the FRONTEND MOCKUP ONLY.
+
+Use:
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+- Lucide icons
+- shadcn/ui only where useful
+
+Use deterministic mock data and mock service abstractions.
+
+DO NOT implement real:
+- AES-256-GCM encryption
+- ML-KEM
+- ML-DSA
+- PDF watermarking
+- blockchain/DLT
+- cryptographic key management
+- production authentication
+- KMS
+- air-gapped networking
+
+The UI must simulate the complete workflow while keeping the
+architecture ready for a future FastAPI backend.
+
+============================================================
+CRITICAL VISUAL REQUIREMENT
+============================================================
+
+DO NOT build a generic SaaS dashboard.
+
+DO NOT use the common AI-generated cybersecurity aesthetic.
+
+The visual identity is:
+
+ICY SECURE OPERATIONS
+
+The application should feel like:
+
+- secure institutional document management
+- precision operations workstation
+- forensic evidence environment
+- advanced digital archive
+- technical but restrained
+- cold, clean and controlled
+
+It should NOT feel like:
+
+- generic SaaS
+- generic admin dashboard
+- AI dashboard
+- cybersecurity startup
+- cyberpunk
+- gaming HUD
+- fintech
+- crypto trading
+- generic government portal
+
+============================================================
+COLOR SYSTEM
+============================================================
+
+MAIN CANVAS:
+#DCE8E9
+
+SURFACE:
+#EAF4F5
+
+RAISED SURFACE:
+#F1F8F8
+
+PALE CYAN:
+#C6FCFF
+
+SOFT CYAN:
+#92E6EC
+
+PRIMARY AQUA:
+#49A6AE
+
+DARK TEAL:
+#0F4C52
+
+DEEPEST TEAL:
+#07383D
+
+PRIMARY TEXT:
+#102F33
+
+SECONDARY TEXT:
+#587579
+
+BORDER:
+#B7CED0
+
+IMPORTANT:
+
+#DCE8E9 MUST be the dominant application background.
+
+Do NOT use pure white as the dominant canvas.
+
+Do NOT use green.
+
+Do NOT use:
+- purple
+- violet
+- indigo
+- royal blue
+- electric blue
+- blue-purple gradients
+
+Do NOT return to the previous green cybersecurity palette.
+
+The visual progression should feel like:
+
+MIST
+→ FROST
+→ ICE
+→ PALE CYAN
+→ AQUA
+→ DEEP TEAL
+
+============================================================
+NAVIGATION
+============================================================
+
+NO LEFT SIDEBAR.
+
+Use a horizontal top navigation.
+
+Top bar:
+
+SDMS
+Secure Document Management System
+
+Navigation changes according to role.
+
+AUTHORITY:
+OPERATIONS
+DOCUMENTS
+DISTRIBUTIONS
+NEW RELEASE
+
+RECIPIENT:
+OPERATIONS
+DOCUMENTS
+HISTORY
+
+ADMIN:
+OPERATIONS
+EVENTS
+PQC
+LEDGER
+SYSTEM
+
+INVESTIGATOR:
+EVIDENCE
+ANALYSIS
+CHAIN
+REPORTS
+
+Top bar background:
+#07383D
+
+Active navigation:
+thin #92E6EC or #49A6AE underline.
+
+Right side:
+SYSTEM AIR-GAPPED / OPERATIONAL
+current user
+role
+logout
+
+============================================================
+TYPOGRAPHY
+============================================================
+
+Primary:
+Manrope
+
+Headings:
+Instrument Sans
+
+Optional:
+Space Grotesk
+
+Use monospace ONLY for:
+- hashes
+- session IDs
+- event IDs
+- watermark IDs
+- ledger hashes
+- signatures
+
+DO NOT use IBM Plex Mono as the primary technical font.
+
+Do not make every label uppercase and monospaced.
+
+Use large expressive headings.
+
+============================================================
+GEOMETRY
+============================================================
+
+Use mostly rectangular structures.
+
+Typical radius:
+0–6px.
+
+Avoid:
+- huge rounded cards
+- 12/16/20/24px radius everywhere
+- pill-shaped containers
+- excessive shadows
+
+Use:
+- thin borders
+- horizontal rules
+- spacing
+- typography
+- structured tables
+- split panes
+- document sheets
+- drawers
+- timelines
+
+The interface should look architectural rather than bubbly.
+
+============================================================
+NO GENERIC STATUS PILLS
+============================================================
+
+DO NOT use:
+
+[ ● PROTECTED ]
+
+DO NOT use:
+
+[ ✓ VERIFIED ]
+
+for routine states.
+
+Instead use:
+
+STATE
+ENCRYPTED
+
+or:
+
+■ ENCRYPTED
+
+or table columns:
+
+STATE
+ENCRYPTED
+
+For cryptographic verification:
+
+WATERMARK        MATCH
+ML-DSA           VALID
+DOCUMENT HASH    MATCH
+LEDGER CHAIN     INTACT
+
+Use typography and small markers.
+
+============================================================
+NO GENERIC KPI CARD GRID
+============================================================
+
+Do NOT make four rounded cards:
+
+Documents
+Recipients
+Decryptions
+Attribution
+
+Instead use a structured metric strip.
+
+Example:
+
+03
+ACTIVE DOCUMENTS
+
+03
+AUTHORIZED RECIPIENTS
+
+184
+RECORDED DECRYPTIONS
+
+184
+ATTRIBUTION EVENTS
+
+Use large typography and thin rules.
+
+============================================================
+DOCUMENT DESIGN
+============================================================
+
+Documents should look like secure digital records.
+
+Example:
+
+01
+
+STRATEGIC OPERATIONS REPORT
+
+DOC-2026-001
+
+RESTRICTED
+4.8 MB
+26 SEP 2026
+
+RECIPIENT ACCESS
+AUTHORIZED
+
+OPEN RECORD →
+
+Use rules and whitespace.
+
+Do not use generic document cards.
+
+============================================================
+AUTHORITY
+============================================================
+
+Authority = DOCUMENT OPERATIONS.
+
+Workflow:
+
+LOGIN
+→ OPERATIONS
+→ DOCUMENTS
+→ NEW RELEASE
+→ UPLOAD
+→ DETAILS
+→ RECIPIENTS
+→ REVIEW
+→ RELEASE
+→ DISTRIBUTION RECORD
+
+Demo:
+
+Strategic Operations Report
+
+Recipients:
+- Ananya Sharma
+- Rahul Mehta
+- Vikram Singh
+
+Show conceptual technologies:
+
+AES-256-GCM
+ML-KEM
+ML-DSA
+AIR-GAPPED
+PRIVATE LEDGER
+
+============================================================
+RECIPIENT
+============================================================
+
+Recipient = SECURE DOCUMENT WORKSPACE.
+
+Only show authorized documents.
+
+Do not show:
+- other recipients
+- watermark IDs
+- session IDs
+- ledger internals
+- investigation data
+
+Secure decryption stages:
+
+AUTHENTICATION
+PACKAGE RETRIEVAL
+KEY RECOVERY
+LOCAL DECRYPTION
+SESSION PROTECTION
+EVENT SIGNING
+AUDIT COMMIT
+
+Use a process timeline.
+
+============================================================
+SECURITY ADMIN
+============================================================
+
+Admin = SECURITY OPERATIONS CONSOLE.
+
+Use dense technical tables.
+
+Decryption event table:
+
+EVENT
+DOCUMENT
+RECIPIENT
+SESSION
+WATERMARK
+TIMESTAMP
+STATE
+
+Private ledger:
+
+BLOCK
+EVENT
+PREVIOUS HASH
+EVENT HASH
+CURRENT HASH
+
+Clicking a block opens a technical drawer.
+
+============================================================
+INVESTIGATOR
+============================================================
+
+THIS IS THE MOST IMPORTANT VISUAL SCREEN.
+
+Build a FORENSIC WORKBENCH.
+
+Use split-pane layout.
+
+LEFT:
+LEAKED DOCUMENT / EVIDENCE
+
+RIGHT:
+PROVENANCE / CRYPTOGRAPHIC ANALYSIS
+
+Show:
+
+DOCUMENT
+↓
+RECIPIENT
+↓
+SESSION
+↓
+WATERMARK
+↓
+SIGNATURE
+↓
+LEDGER BLOCK
+
+Use thin cyan/aqua connection lines.
+
+No glowing blockchain graphics.
+
+No cyberpunk visuals.
+
+============================================================
+FORENSIC RESULT
+============================================================
+
+Use large typography:
+
+DECRYPTION
+EVENT MATCHED
+
+Then:
+
+RECIPIENT
+Ananya Sharma
+REC-003
+
+DOCUMENT
+Strategic Operations Report
+DOC-2026-001
+
+SESSION
+SES-20260926-8F3A
+
+WATERMARK
+WM-7F83A2B9
+
+EVENT
+DEC-000184
+
+LEDGER BLOCK
+184
+
+Verification:
+
+WATERMARK       MATCH
+ML-DSA          VALID
+DOCUMENT HASH   MATCH
+LEDGER CHAIN    INTACT
+
+============================================================
+WATERMARK VISUAL LANGUAGE
+============================================================
+
+The product's visual identity may subtly reference
+invisible forensic watermarking.
+
+Use extremely subtle:
+- registration marks
+- micro-dot patterns
+- repeated fine lines
+- watermark-like structures
+- technical trace lines
+
+Only on relevant screens.
+
+Do NOT use:
+- circuit boards
+- neon grids
+- glowing networks
+
+============================================================
+LEDGER TAMPER SIMULATION
+============================================================
+
+Initial:
+
+LEDGER INTEGRITY
+CHAIN INTACT
+
+Tampered:
+
+LEDGER INTEGRITY
+CHAIN INTERRUPTED
+
+Show:
+
+BLOCK 184
+CURRENT HASH MISMATCH
+
+BLOCK 185
+PREVIOUS HASH MISMATCH
+
+Then:
+
+RESTORE TEST STATE
+
+This is only a UI simulation in Phase 1.
+
+============================================================
+MOCK SERVICES
+============================================================
+
+Create:
+
+authService
+documentService
+distributionService
+decryptionService
+watermarkService
+ledgerService
+investigationService
+
+Pages must consume these services instead of scattering mock
+business logic throughout components.
+
+Use deterministic IDs and data.
+
+============================================================
+REUSABLE COMPONENTS
+============================================================
+
+Create:
+
+AppShell
+TopNav
+ContextBar
+PageHeader
+MetricStrip
+DataTable
+DocumentRecord
+DocumentRegister
+StepIndicator
+ProcessingTimeline
+VerificationList
+HashDisplay
+UploadZone
+EvidenceChain
+EvidenceNode
+LedgerTable
+LedgerDrawer
+SplitPane
+TechnicalDrawer
+Toast
+EmptyState
+ErrorState
+
+============================================================
+DEMO DATA
+============================================================
+
+DOCUMENTS:
+
+DOC-2026-001
+Strategic Operations Report
+Strategic_Operations_Report.pdf
+RESTRICTED
+
+DOC-2026-002
+Infrastructure Security Brief
+Infrastructure_Security_Brief.pdf
+CONFIDENTIAL
+
+DOC-2026-003
+Mission Logistics Report
+Mission_Logistics_Report.pdf
+RESTRICTED
+
+RECIPIENTS:
+
+REC-003
+Ananya Sharma
+
+REC-004
+Rahul Mehta
+
+REC-005
+Vikram Singh
+
+FORENSIC DEMO:
+
+Recipient:
+Ananya Sharma
+
+Recipient ID:
+REC-003
+
+Document:
+Strategic Operations Report
+
+Document ID:
+DOC-2026-001
+
+Session:
+SES-20260926-8F3A
+
+Watermark:
+WM-7F83A2B9
+
+Event:
+DEC-000184
+
+Ledger:
+Block 184
+
+============================================================
+REQUIRED HAPPY PATH
+============================================================
+
+1. Authority login
+2. Create Strategic Operations Report distribution
+3. Select three recipients
+4. Review crypto architecture
+5. Release document
+6. Ananya login
+7. Open document
+8. Secure decryption simulation
+9. Investigator login
+10. New investigation
+11. Upload leaked PDF
+12. Forensic analysis
+13. Watermark detected
+14. Ledger event matched
+15. ML-DSA verification
+16. Document hash verification
+17. Ledger verification
+18. DECRYPTION EVENT MATCHED
+19. Open evidence chain
+20. Admin login
+21. Verify ledger
+22. Simulate tampering
+23. Restore ledger
+
+============================================================
+QUALITY GATE
+============================================================
+
+After implementation, inspect every major screen.
+
+If it looks like a generic SaaS dashboard:
+REDESIGN.
+
+If it looks like a generic cybersecurity dashboard:
+REDESIGN.
+
+If it looks like a blue/purple AI dashboard:
+REDESIGN.
+
+If it looks like a white dashboard with cyan buttons:
+REDESIGN.
+
+If it looks like the old green project:
+REDESIGN.
+
+The final visual identity must clearly read:
+
+SDMS
+SECURE DOCUMENT MANAGEMENT SYSTEM
+
+ICY
+TECHNICAL
+INSTITUTIONAL
+FORENSIC
+DOCUMENT-CENTRIC
+DISTINCTIVE
+
+Build the design system first.
+Then the shell.
+Then role routes.
+Then screens.
+Then interactions.
+
+Do not rush into adding features before the visual foundation is correct.

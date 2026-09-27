@@ -1,6 +1,6 @@
-# [Project name]
+# SDMS Secure Operations Console
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+SDMS is a frontend-only secure document operations console that simulates controlled release, recipient decryption, forensic attribution, and private ledger verification.
 
 ## Run & Operate
 
@@ -22,19 +22,27 @@ _Replace the heading above with the project's name, and this line with one sente
 
 ## Where things live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+- `artifacts/sdms-console/src/App.tsx` — role-based routes, deterministic mock services, and interactive Phase 1 workflows
+- `artifacts/sdms-console/src/index.css` — SDMS icy operations design tokens and shared surface utilities
+- `attached_assets/` — source PRD files
 
 ## Architecture decisions
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
+- Phase 1 is intentionally frontend-only; cryptography, watermarking, ledger persistence, and authentication are simulations.
+- The UI uses deterministic IDs and in-memory state so the happy path is repeatable for demos.
+- Role-aware pages share a horizontal shell and consume centralized mock records instead of scattering business data through screens.
+- The visual system uses the PRD's mist/cyan/deep-teal palette, structured tables, split panes, and technical drawers rather than generic dashboard cards.
 
 ## Product
 
-_Describe the high-level user-facing capabilities of this app once they exist._
+- Authority release workflow with recipient selection and cryptographic architecture review
+- Recipient document register and staged local decryption simulation
+- Admin event register, PQC status, private ledger inspection, verify/tamper/restore controls, and system health
+- Investigator upload simulation, forensic analysis, evidence chain, technical node drawers, and matched-event report
 
 ## User preferences
 
-_Populate as you build — explicit user instructions worth remembering across sessions._
+- Follow the attached SDMS PRD literally for visual identity and Phase 1 scope.
 
 ## Gotchas
 

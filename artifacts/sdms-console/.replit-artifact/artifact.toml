@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "SDMS Secure Operations Console"
+description = "A frontend-only secure document management and forensic provenance workstation for simulating document release, recipient decryption, investigation matching, and private ledger verification across four operational roles."
+version = "1.0.0"
+id = "artifacts/sdms-console"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 23257
+
+[services.development]
+run = "pnpm --filter @workspace/sdms-console run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/sdms-console", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/sdms-console/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "23257"
+BASE_PATH = "/"
