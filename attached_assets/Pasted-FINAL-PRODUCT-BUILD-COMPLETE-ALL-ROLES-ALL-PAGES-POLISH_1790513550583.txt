@@ -1,0 +1,1325 @@
+FINAL PRODUCT BUILD — COMPLETE ALL ROLES + ALL PAGES + POLISH
+
+IMPORTANT:
+The current SDMS visual direction is approved.
+
+DO NOT redesign the visual identity again.
+
+Keep the existing approved:
+- SDMS branding
+- top navigation
+- icy cyan/deep teal palette
+- #DCE8E9 background
+- deep teal top bar
+- typography
+- rectangular/architectural UI
+- no persistent sidebar
+- no generic green security pills
+- no purple/violet/indigo
+- no generic AI dashboard styling
+
+The current application is only partially implemented:
+RIGHT NOW I CAN ONLY LOGIN AS DOCUMENT AUTHORITY.
+
+Your task is now to COMPLETE THE ENTIRE FRONTEND PRODUCT.
+
+Do not stop after creating a few placeholder pages.
+
+Every role, route, navigation item, workflow and major interaction
+must exist and look production-quality.
+
+============================================================
+1. ROLE SYSTEM — MUST BE FIXED FIRST
+============================================================
+
+Implement working demo login for ALL FOUR ROLES.
+
+There must NOT be a role-selection screen.
+
+Use these demo credentials:
+
+DOCUMENT AUTHORITY
+username: authority
+password: demo
+
+RECIPIENT — ANANYA
+username: ananya
+password: demo
+
+RECIPIENT — RAHUL
+username: rahul
+password: demo
+
+RECIPIENT — VIKRAM
+username: vikram
+password: demo
+
+SECURITY ADMINISTRATOR
+username: admin
+password: demo
+
+FORENSIC INVESTIGATOR
+username: investigator
+password: demo
+
+After login, route the user automatically to the correct role workspace.
+
+The current authority login must continue working.
+
+============================================================
+2. ROLE ACCESS
+============================================================
+
+DOCUMENT AUTHORITY:
+
+Allowed:
+- Operations
+- Documents
+- Distributions
+- New Release
+- Distribution History
+- Distribution Details
+
+Not allowed:
+- other recipients' decryption events
+- forensic investigation internals
+- private ledger administration
+
+------------------------------------------------------------
+
+RECIPIENT:
+
+Allowed:
+- Operations
+- Documents
+- Document Details
+- Secure Decryption
+- History
+
+Not allowed:
+- other recipients
+- private ledger
+- forensic investigations
+- watermark IDs
+- internal cryptographic records
+
+------------------------------------------------------------
+
+SECURITY ADMINISTRATOR:
+
+Allowed:
+- Security Operations
+- Decryption Events
+- PQC / Identity
+- Private Ledger
+- System Health
+
+------------------------------------------------------------
+
+FORENSIC INVESTIGATOR:
+
+Allowed:
+- Investigation Workspace
+- New Investigation
+- Evidence
+- Forensic Analysis
+- Evidence Chain
+- Reports
+
+============================================================
+3. COMPLETE ROUTE STRUCTURE
+============================================================
+
+Implement all routes.
+
+AUTH:
+
+/login
+
+
+AUTHORITY:
+
+/authority/dashboard
+/authority/documents
+/authority/distributions/new
+/authority/distributions/:id
+/authority/history
+
+
+RECIPIENT:
+
+/recipient/dashboard
+/recipient/documents
+/recipient/documents/:id
+/recipient/decrypt/:id
+/recipient/history
+
+
+ADMIN:
+
+/admin/dashboard
+/admin/events
+/admin/pqc
+/admin/ledger
+/admin/health
+
+
+INVESTIGATOR:
+
+/investigator/dashboard
+/investigator/investigations/new
+/investigator/investigations/:id
+/investigator/evidence/:id
+/investigator/reports
+
+
+Every route must render a complete polished page.
+
+Do not create blank placeholder screens.
+
+============================================================
+4. SHARED APPLICATION SHELL
+============================================================
+
+Create one reusable application shell.
+
+Top bar:
+
+LEFT:
+SDMS
+Secure Document Management System
+
+CENTER:
+role-specific navigation
+
+RIGHT:
+SYSTEM
+AIR-GAPPED / OPERATIONAL
+
+USER INITIALS
+USER NAME
+ROLE
+LOGOUT
+
+Below it:
+
+context breadcrumb
+
+Example:
+
+SDMS / DOCUMENT AUTHORITY / DOCUMENTS
+
+or:
+
+SDMS / FORENSIC INVESTIGATOR / ANALYSIS
+
+The top navigation must adapt to the logged-in role.
+
+============================================================
+5. AUTHORITY — COMPLETE ALL PAGES
+============================================================
+
+PAGE 1:
+AUTHORITY OPERATIONS
+
+Title:
+
+Distribution control
+
+Subtitle:
+
+Track controlled document release from authority workspace
+through recipient-local decryption.
+
+Show:
+
+03
+ACTIVE DOCUMENTS
+
+03
+AUTHORIZED RECIPIENTS
+
+184
+RECORDED DECRYPTIONS
+
+184
+ATTRIBUTION EVENTS
+
+Use the approved metric-strip design.
+
+Below:
+
+RECENT DISTRIBUTION ACTIVITY
+
+Use a structured table.
+
+Columns:
+
+DOCUMENT
+PACKAGES
+STATE
+UPDATED
+ACTION
+
+Rows:
+
+Strategic Operations Report
+Infrastructure Security Brief
+Mission Logistics Report
+
+Right/secondary section:
+
+PROTECTION POSTURE
+
+AES-256-GCM
+ML-KEM
+ML-DSA
+AIR-GAPPED
+PRIVATE / PERMISSIONED
+
+Do NOT make every item a green VERIFIED pill.
+
+Use textual state presentation.
+
+------------------------------------------------------------
+
+PAGE 2:
+DOCUMENTS
+
+Title:
+
+Document register
+
+Show a polished document-management table.
+
+Columns:
+
+DOCUMENT
+CLASSIFICATION
+SIZE
+RECIPIENTS
+CREATED
+STATE
+ACTION
+
+Include search and filtering.
+
+Filters:
+
+Classification
+State
+Date
+
+Actions:
+
+Open
+View distribution
+
+------------------------------------------------------------
+
+PAGE 3:
+NEW RELEASE
+
+Create a complete multi-step workflow:
+
+01 UPLOAD
+02 DETAILS
+03 RECIPIENTS
+04 REVIEW
+05 RELEASE
+
+STEP 1:
+Upload PDF
+
+Use polished drag/drop upload zone.
+
+Show:
+filename
+size
+SHA-256 mock hash
+
+STEP 2:
+Details
+
+Document name
+Classification
+Description
+
+STEP 3:
+Recipients
+
+Selectable recipients:
+
+Ananya Sharma
+REC-003
+
+Rahul Mehta
+REC-004
+
+Vikram Singh
+REC-005
+
+Show recipient identity information without exposing private keys.
+
+STEP 4:
+Review
+
+Show:
+
+CONTENT ENCRYPTION
+AES-256-GCM
+
+KEY PROTECTION
+ML-KEM
+
+EVENT SIGNATURE
+ML-DSA
+
+DEPLOYMENT
+AIR-GAPPED
+
+AUDIT
+PRIVATE PERMISSIONED LEDGER
+
+STEP 5:
+Release
+
+Show processing timeline:
+
+DOCUMENT HASH
+ENCRYPTION
+RECIPIENT KEY PACKAGES
+DISTRIBUTION RECORD
+READY
+
+Then show:
+
+DISTRIBUTION RELEASED
+
+and navigate to distribution details.
+
+------------------------------------------------------------
+
+PAGE 4:
+DISTRIBUTION DETAILS
+
+Show:
+
+Strategic Operations Report
+DOC-2026-001
+
+Classification
+RESTRICTED
+
+Release date
+26 Sep 2026
+
+Recipients:
+
+Ananya Sharma
+Rahul Mehta
+Vikram Singh
+
+Show package status.
+
+Do NOT expose recipient private keys.
+
+Show:
+
+3 recipient packages generated
+3 authorized recipients
+Recipient-local decryption enabled
+
+------------------------------------------------------------
+
+PAGE 5:
+DISTRIBUTION HISTORY
+
+Dense audit-style table.
+
+Columns:
+
+DOCUMENT
+RELEASE ID
+RECIPIENTS
+RELEASED
+STATE
+ACTION
+
+Use realistic timestamps.
+
+============================================================
+6. RECIPIENT — COMPLETE ALL PAGES
+============================================================
+
+Recipient UI should be simpler and less technical than Admin.
+
+------------------------------------------------------------
+
+PAGE 1:
+RECIPIENT OPERATIONS
+
+Title:
+
+Secure document workspace
+
+Subtitle:
+
+Documents authorized for your recipient identity.
+
+Show:
+
+AVAILABLE DOCUMENTS
+02
+
+RECENT ACCESS
+01
+
+LAST DOCUMENT
+Strategic Operations Report
+
+Do not show other recipients.
+
+------------------------------------------------------------
+
+PAGE 2:
+DOCUMENTS
+
+Show:
+
+Strategic Operations Report
+
+DOC-2026-001
+
+RESTRICTED
+4.8 MB
+
+Received
+26 Sep 2026
+
+ACCESS
+AUTHORIZED
+
+Action:
+
+OPEN SECURELY
+
+Also:
+
+Infrastructure Security Brief
+
+DOC-2026-002
+
+------------------------------------------------------------
+
+PAGE 3:
+DOCUMENT DETAILS
+
+Show:
+
+Document title
+classification
+size
+received date
+sender/authority
+
+Then:
+
+SECURE ACCESS
+
+Forensic protection active.
+
+Button:
+
+OPEN SECURELY
+
+Do not show:
+watermark ID
+session ID
+ledger block
+signature
+other recipient information
+
+------------------------------------------------------------
+
+PAGE 4:
+SECURE DECRYPTION
+
+This is a major demo screen.
+
+Show:
+
+SECURE DOCUMENT ACCESS
+
+Strategic Operations Report
+
+Then a visual processing timeline:
+
+AUTHENTICATION
+COMPLETE
+
+PACKAGE RETRIEVAL
+COMPLETE
+
+KEY RECOVERY
+COMPLETE
+
+LOCAL DECRYPTION
+COMPLETE
+
+SESSION PROTECTION
+COMPLETE
+
+EVENT SIGNING
+COMPLETE
+
+AUDIT COMMIT
+COMPLETE
+
+Then:
+
+DOCUMENT READY
+
+Button:
+
+OPEN PROTECTED COPY
+
+Simulate processing rather than instantly changing the screen.
+
+------------------------------------------------------------
+
+PAGE 5:
+RECIPIENT HISTORY
+
+Show only this recipient's own document access history.
+
+Columns:
+
+DOCUMENT
+ACCESS
+DATE
+RESULT
+
+No watermark/session/ledger internals.
+
+============================================================
+7. SECURITY ADMIN — COMPLETE ALL PAGES
+============================================================
+
+The Admin workspace should be denser and more technical.
+
+------------------------------------------------------------
+
+PAGE 1:
+SECURITY OPERATIONS
+
+Show:
+
+DECRYPTION EVENTS
+184
+
+ACTIVE RECIPIENT IDENTITIES
+03
+
+LEDGER BLOCKS
+185
+
+PQC STATUS
+OPERATIONAL
+
+Below:
+
+RECENT DECRYPTION EVENTS
+
+Use a dense table:
+
+EVENT
+DOCUMENT
+RECIPIENT
+SESSION
+WATERMARK
+TIMESTAMP
+STATE
+
+Example:
+
+DEC-000184
+Strategic Operations Report
+REC-003
+SES-20260926-8F3A
+WM-7F83A2B9
+26 Sep 2026 16:31
+RECORDED
+
+Click row -> detail drawer.
+
+------------------------------------------------------------
+
+PAGE 2:
+DECRYPTION EVENTS
+
+Full searchable/filterable event table.
+
+Filters:
+
+Document
+Recipient
+Date
+Verification state
+
+Search by:
+
+Event ID
+Session ID
+Watermark ID
+
+Clicking an event opens detailed technical drawer.
+
+Show:
+
+EVENT ID
+DOCUMENT HASH
+RECIPIENT ID
+SESSION ID
+WATERMARK ID
+SIGNATURE
+TIMESTAMP
+LEDGER BLOCK
+
+------------------------------------------------------------
+
+PAGE 3:
+PQC / IDENTITY
+
+Show recipient identities:
+
+Ananya Sharma
+REC-003
+
+Rahul Mehta
+REC-004
+
+Vikram Singh
+REC-005
+
+For each:
+
+ML-KEM
+AVAILABLE
+
+ML-DSA
+AVAILABLE
+
+IDENTITY
+ACTIVE
+
+Do not expose private keys.
+
+Include technical explanation:
+
+ML-KEM
+Key establishment / encapsulation
+
+ML-DSA
+Digital signature
+
+SHA-256
+Document/event hashing
+
+------------------------------------------------------------
+
+PAGE 4:
+PRIVATE LEDGER
+
+This should be a polished technical ledger.
+
+Title:
+
+Private ledger
+
+Subtitle:
+
+Tamper-evident local event chain.
+
+Table:
+
+BLOCK
+EVENT
+PREVIOUS HASH
+EVENT HASH
+CURRENT HASH
+TIMESTAMP
+
+Blocks:
+
+181
+182
+183
+184
+185
+
+Clicking a block opens drawer.
+
+Drawer:
+
+BLOCK 184
+
+EVENT
+DEC-000184
+
+PREVIOUS HASH
+...
+
+EVENT HASH
+...
+
+SIGNATURE
+...
+
+CURRENT HASH
+...
+
+CHAIN STATUS
+INTACT
+
+Actions:
+
+VERIFY LEDGER
+SIMULATE TAMPER
+RESTORE TEST STATE
+
+------------------------------------------------------------
+
+PAGE 5:
+SYSTEM HEALTH
+
+Show structured technical status.
+
+AIR-GAPPED NETWORK
+OPERATIONAL
+
+PQC ENGINE
+AVAILABLE
+
+PRIVATE LEDGER
+OPERATIONAL
+
+LOCAL STORAGE
+AVAILABLE
+
+DATABASE
+OPERATIONAL
+
+WATERMARK ENGINE
+AVAILABLE
+
+Use a technical status table, not generic cards.
+
+============================================================
+8. FORENSIC INVESTIGATOR — COMPLETE ALL PAGES
+============================================================
+
+This role gets the strongest visual treatment.
+
+------------------------------------------------------------
+
+PAGE 1:
+ATTRIBUTION WORKSPACE
+
+Title:
+
+Attribution workspace
+
+Subtitle:
+
+Correlate leaked material with recipient-local decryption evidence
+and signed ledger records.
+
+Show:
+
+OPEN INVESTIGATIONS
+01
+
+MATCHED EVENTS
+01
+
+EVIDENCE VERIFIED
+04/04
+
+REPORTS READY
+02
+
+Below:
+
+ACTIVE INVESTIGATION
+
+INV-20260926-014
+
+Strategic_Operations_Report_leaked.pdf
+
+Status:
+MATCHED
+
+Show:
+
+Matched to Ananya Sharma
+Session SES-20260926-8F3A
+
+Beside it:
+
+EVIDENCE CHAIN
+
+DOCUMENT
+→
+RECIPIENT
+→
+SESSION
+→
+WATERMARK
+→
+SIGNATURE
+→
+LEDGER BLOCK
+
+------------------------------------------------------------
+
+PAGE 2:
+NEW INVESTIGATION
+
+Title:
+
+New forensic investigation
+
+Step workflow:
+
+01 EVIDENCE
+02 EXTRACTION
+03 CORRELATION
+04 VERIFICATION
+05 REPORT
+
+Upload leaked PDF.
+
+Show:
+
+filename
+size
+SHA-256
+
+Then:
+
+START ANALYSIS
+
+------------------------------------------------------------
+
+PAGE 3:
+FORENSIC ANALYSIS
+
+THIS MUST BE A SPLIT-PANE FORENSIC WORKBENCH.
+
+LEFT:
+Leaked document preview.
+
+RIGHT:
+Analysis/provenance.
+
+Show stages:
+
+DOCUMENT LOADED
+WATERMARK SEARCH
+DCT ANALYSIS
+WATERMARK DETECTED
+EVENT CORRELATION
+SIGNATURE VERIFICATION
+DOCUMENT HASH VERIFICATION
+LEDGER VERIFICATION
+
+Use progressive simulation.
+
+------------------------------------------------------------
+
+PAGE 4:
+EVIDENCE / ATTRIBUTION
+
+Large result:
+
+DECRYPTION
+EVENT MATCHED
+
+Then:
+
+RECIPIENT
+Ananya Sharma
+REC-003
+
+DOCUMENT
+Strategic Operations Report
+DOC-2026-001
+
+SESSION
+SES-20260926-8F3A
+
+WATERMARK
+WM-7F83A2B9
+
+EVENT
+DEC-000184
+
+LEDGER BLOCK
+184
+
+Verification list:
+
+WATERMARK
+MATCH
+
+ML-DSA SIGNATURE
+VALID
+
+DOCUMENT HASH
+MATCH
+
+LEDGER CHAIN
+INTACT
+
+Use the approved icy cyan/deep teal visual system.
+
+Do NOT make this a green success card.
+
+------------------------------------------------------------
+
+PAGE 5:
+EVIDENCE CHAIN
+
+Make the chain interactive.
+
+DOCUMENT
+↓
+RECIPIENT
+↓
+SESSION
+↓
+WATERMARK
+↓
+SIGNATURE
+↓
+LEDGER BLOCK
+
+Click each node to show technical details.
+
+------------------------------------------------------------
+
+PAGE 6:
+REPORTS
+
+Show generated forensic reports.
+
+Columns:
+
+CASE
+DOCUMENT
+MATCH
+DATE
+STATUS
+ACTION
+
+Example:
+
+INV-20260926-014
+Strategic Operations Report
+REC-003
+26 Sep 2026
+READY
+VIEW REPORT
+
+Allow:
+
+VIEW
+EXPORT MOCK REPORT
+
+============================================================
+9. CROSS-ROLE CONSISTENCY
+============================================================
+
+All roles must use:
+
+same:
+- color tokens
+- typography
+- top navigation language
+- spacing
+- geometry
+- interaction patterns
+
+But each role must have a different information density.
+
+AUTHORITY:
+document operations
+
+RECIPIENT:
+minimal secure workspace
+
+ADMIN:
+technical operations console
+
+INVESTIGATOR:
+forensic workbench
+
+============================================================
+10. UI POLISH
+============================================================
+
+Every page must have:
+
+- clear page title
+- concise subtitle
+- contextual breadcrumb
+- proper empty states
+- loading states
+- hover states
+- focus states
+- disabled states
+- error states
+- success completion states
+- realistic timestamps
+- consistent spacing
+- consistent typography
+- keyboard-accessible controls
+- tooltips where necessary
+
+Do not leave:
+- dead buttons
+- placeholder lorem ipsum
+- blank sections
+- unfinished routes
+- "coming soon"
+- generic placeholder cards
+
+============================================================
+11. MICRO-INTERACTIONS
+============================================================
+
+Use subtle animation only.
+
+Examples:
+
+Login:
+short transition
+
+Release:
+processing timeline
+
+Decryption:
+progressive processing stages
+
+Forensic analysis:
+analysis stages
+
+Ledger verification:
+verification progression
+
+Drawer:
+smooth open/close
+
+Do NOT use:
+- glowing effects
+- excessive motion
+- pulsing neon
+- floating cards
+
+============================================================
+12. RESPONSIVE
+============================================================
+
+Primary:
+1440px
+
+Also support:
+1280px
+1024px
+
+The desktop layout is the priority.
+
+Ensure tables can scroll horizontally rather than breaking.
+
+============================================================
+13. MOCK DATA MUST BE CONSISTENT
+============================================================
+
+The same entities must appear across roles.
+
+Strategic Operations Report:
+DOC-2026-001
+
+Recipients:
+REC-003 Ananya Sharma
+REC-004 Rahul Mehta
+REC-005 Vikram Singh
+
+Forensic event:
+
+DEC-000184
+
+Session:
+
+SES-20260926-8F3A
+
+Watermark:
+
+WM-7F83A2B9
+
+Ledger block:
+
+184
+
+The authority distribution must connect to the recipient document.
+
+The recipient decryption must connect to the investigator evidence.
+
+The investigator result must connect to the admin event.
+
+The admin ledger must contain the same event.
+
+This must feel like ONE SYSTEM, not independent demo pages.
+
+============================================================
+14. DEMO STATE
+============================================================
+
+Create a centralized mock application state.
+
+The following should update consistently:
+
+documents
+recipients
+distributions
+decryption events
+watermarks
+ledger blocks
+investigations
+reports
+
+For example:
+
+Authority releases DOC-2026-001
+→ recipient sees DOC-2026-001
+→ recipient decrypts DOC-2026-001
+→ event DEC-000184 exists
+→ watermark WM-7F83A2B9 exists
+→ ledger block 184 exists
+→ investigator matches the same event
+
+============================================================
+15. IMPORTANT — DO NOT IMPLEMENT REAL CRYPTOGRAPHY
+============================================================
+
+This is still Phase 1.
+
+The UI may display:
+
+AES-256-GCM
+ML-KEM
+ML-DSA
+SHA-256
+DCT watermark
+Private ledger
+
+but these are simulated in the frontend.
+
+Do not implement fake cryptographic algorithms and present them as
+real security.
+
+Structure the code so real services can replace the mock services later.
+
+============================================================
+16. FINAL QUALITY REVIEW
+============================================================
+
+Before finishing:
+
+Test every login:
+
+authority / demo
+ananya / demo
+rahul / demo
+vikram / demo
+admin / demo
+investigator / demo
+
+Test every route.
+
+Test every navigation item.
+
+Test the complete end-to-end demo:
+
+AUTHORITY
+→ RELEASE DOCUMENT
+→ RECIPIENT
+→ DECRYPT
+→ INVESTIGATOR
+→ MATCH WATERMARK
+→ VERIFY EVENT
+→ ADMIN
+→ VERIFY LEDGER
+→ TAMPER
+→ RESTORE
+
+No route should be inaccessible.
+
+No major button should be dead.
+
+No page should look unfinished.
+
+============================================================
+17. FINAL VISUAL CHECK
+============================================================
+
+Do NOT redesign the approved visual identity.
+
+Keep:
+
+#DCE8E9
+#EAF4F5
+#F1F8F8
+#C6FCFF
+#92E6EC
+#49A6AE
+#0F4C52
+#07383D
+
+No purple.
+No violet.
+No green security theme.
+No sidebar.
+No giant rounded cards.
+No generic SaaS KPI-card grid.
+No PROTECTED pill everywhere.
+No VERIFIED pill everywhere.
+No IBM Plex Mono-heavy UI.
+
+The final result should look like a complete,
+coherent,
+high-end:
+
+SDMS
+SECURE DOCUMENT MANAGEMENT SYSTEM
+
+not a collection of mock screens.
+
+============================================================
+18. DO NOT STOP EARLY
+============================================================
+
+Continue implementation until ALL FOUR roles and ALL specified pages
+are present.
+
+Do not respond with:
+"the core structure is ready"
+or
+"you can add the remaining pages later."
+
+The objective of this task is to finish the COMPLETE FRONTEND
+MOCKUP.
+
+After implementation, run the application and verify the routes
+and demo credentials before considering the task complete.

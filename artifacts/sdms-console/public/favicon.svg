@@ -1,3 +1,11 @@
-<svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="180" height="180" rx="36" fill="#FF3C00"/>
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Base background block matching deep teal/institutional geometry -->
+  <rect width="64" height="64" rx="6" fill="#07383D"/>
+  <rect x="2" y="2" width="60" height="60" rx="4" stroke="#296B71" stroke-width="1.5"/>
+  <!-- Institutional Document Base with Folded Corner -->
+  <path d="M18 14H38L46 22V50H18V14Z" fill="#0F4C52" stroke="#92E6EC" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M38 14V22H46" fill="#07383D" stroke="#92E6EC" stroke-width="2" stroke-linejoin="round"/>
+  <!-- Central Emblem: Security Shield / Check -->
+  <path d="M26 31C26 31 32 29 32 29C32 29 38 31 38 31V37C38 41.5 32 44.5 32 44.5C32 44.5 26 41.5 26 37V31Z" fill="#C6FCFF" stroke="#49A6AE" stroke-width="1.5" stroke-linejoin="round"/>
+  <path d="M29.5 36.5L31.2 38.2L35 34" stroke="#0F4C52" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
